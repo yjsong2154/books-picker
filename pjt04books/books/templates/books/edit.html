@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Edit</h1>
+  <form action="{% url "books:update" book.pk %}" method="POST">
+    {% csrf_token %}
+    <div>
+      <label for="title">제목: </label>
+      <input type="text" name="title" id="title" value="{{ book.title }}">
+    </div>
+    <div>
+      <label for="stars">별점: </label>
+      <textarea name="stars" id="stars">{{ book.stars }}</textarea>
+    </div>
+    <input type="submit">
+  </form>
+  <hr>
+  <a href="{% url "books:detail" book.pk %}">[메인 페이지로]</a>
+</body>
+</html>
