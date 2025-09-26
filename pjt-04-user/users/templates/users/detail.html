@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>상세 페이지</h1>
+    <h2>{{ book.pk }}번 째 글</h2>
+    <hr />
+    <p>책 제목: {{ book.title }}</p>
+    <p>완독 여부: {{ book.status }}</p>
+    <p>별점: {{ book.rating }}</p>
+    <p>리뷰: {{ book.review }}</p>
+    <hr />
+    <form action="{% url "users:delete" book.pk %}" method = "POST">
+      {% csrf_token %}
+      <input type="submit" value = "삭제">
+    </form>
+    <form action="{% url "users:edit" book.pk %}" method = "get">
+      {% csrf_token %}
+      <input type="submit" value = "수정">
+    </form>
+    <a href="{% url "users:index" %}">목록</a>
+  </body>
+</html>
