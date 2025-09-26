@@ -1,2 +1,3 @@
 # books-picker
-SSAFY 최종 프로젝트
+
+SSAFY 최종 project
